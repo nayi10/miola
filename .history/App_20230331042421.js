@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Animated, StyleSheet, View, Button } from 'react-native';
+import { Animated, Text, StyleSheet, View, Button } from 'react-native';
 
-const ZoomView = () => {
+const FadeInView = () => {
   const [zoomAnim] = useState(new Animated.Value(0))
   const [size, setSize] = useState(50);
 
@@ -11,7 +11,6 @@ const ZoomView = () => {
       {
         toValue: size,
         duration: 1000,
-        useNativeDriver: false,
       }
     ).start();
   }, [size])
@@ -30,7 +29,7 @@ const ZoomView = () => {
       }}
     >
     </Animated.View>
-    <View style={{display: 'flex', flexDirection: 'row'}}>
+    <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly'}}>
       <Button title="Zoom in" onPress={zoomIn}/>
       <View style={{width: 4}}/>
       <Button title="Zoom out" onPress={zoomOut}/>
@@ -41,7 +40,7 @@ const ZoomView = () => {
 
 const styles = StyleSheet.create({
   box: {
-    backgroundColor: 'gray', 
+    backgroundColor: 'blue', 
     borderRadius: 100, 
     marginBottom: 12,
   },
@@ -52,4 +51,4 @@ const styles = StyleSheet.create({
     padding: 16,
   },
 })
-export default ZoomView;
+export default FadeInView;

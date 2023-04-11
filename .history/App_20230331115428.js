@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Animated, StyleSheet, View, Button } from 'react-native';
 
 const ZoomView = () => {
-  const [zoomAnim] = useState(new Animated.Value(0))
+  const [zoomAnim] = useState(new Animated.Value(20))
   const [size, setSize] = useState(50);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const ZoomView = () => {
       {
         toValue: size,
         duration: 1000,
-        useNativeDriver: false,
+        useNativeDriver: true,
       }
     ).start();
   }, [size])
@@ -23,11 +23,10 @@ const ZoomView = () => {
   return (
   <View style={styles.container}>
     <Animated.View
-      style={{
-        ...styles.box,
-        width: zoomAnim,
-        height: zoomAnim,
-      }}
+      style={
+        [styles.box,
+        {transform: [{scale: zoomAnim}]},]
+      }
     >
     </Animated.View>
     <View style={{display: 'flex', flexDirection: 'row'}}>

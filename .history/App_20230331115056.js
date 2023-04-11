@@ -25,8 +25,7 @@ const ZoomView = () => {
     <Animated.View
       style={{
         ...styles.box,
-        width: zoomAnim,
-        height: zoomAnim,
+        transform: [{scale: zoomAnim}],
       }}
     >
     </Animated.View>

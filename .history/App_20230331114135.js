@@ -11,7 +11,7 @@ const ZoomView = () => {
       {
         toValue: size,
         duration: 1000,
-        useNativeDriver: false,
+        useNativeDriver: true,
       }
     ).start();
   }, [size])
